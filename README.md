@@ -1,5 +1,5 @@
 # cnblogs_iOS
-睡睡版博客园（http://www.cnblogs.com/）iphone客户端
+睡睡版博客园（cnblogs.com）iphone客户端
 
 项目作者：http://www.cnblogs.com/bandy/p/3509482.html
 
