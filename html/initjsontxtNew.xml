@@ -1,0 +1,277 @@
+{
+"postList": {
+"id": "post_list",
+"class": "post_item",
+"index": -1,
+"handlerJSURL": "http://files.cnblogs.com/bandy/getListJSON.js"
+},
+"loading": {
+"version": "0001",
+"link": "",
+"img": ""
+},
+"version": {
+"version": "1.0",
+"note": "",
+"URL": ""
+},
+"indexs": [
+{
+"categoryName": "首页",
+"categoryID": -1,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 808,
+"CategoryType": "SiteHome",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "精华",
+"categoryID": -2,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": -2,
+"CategoryType": "Picked",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "候选",
+"categoryID": -3,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108697,
+"CategoryType": "HomeCandidate",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "推荐",
+"categoryID": -2,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": -3,
+"CategoryType": "Expert",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+}
+],
+"categorys": [
+{
+"categoryName": ".NET技术",
+"categoryID": 1,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108698,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "编程语言",
+"categoryID": 2,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 2,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "软件设计",
+"categoryID": 3,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108701,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "Web前端",
+"categoryID": 4,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108703,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "企业信息化",
+"categoryID": 5,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108704,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "手机开发",
+"categoryID": 6,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108705,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "软件工程",
+"categoryID": 7,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108709,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "数据库技术",
+"categoryID": 8,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108712,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "操作系统",
+"categoryID": 9,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 108724,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+},
+{
+"categoryName": "其他分类",
+"categoryID": 10,
+"categoryIsShow": 1,
+"categoryURL": "http://www.cnblogs.com/mvc/AggSite/PostList.aspx",
+"categoryAccept": "text/plain",
+"categoryPostDic": {
+"CategoryId": 4,
+"CategoryType": "TopSiteCategory",
+"ItemListActionName": "PostList",
+"PageIndex": "{index}",
+"ParentCategoryId": 0
+}
+}
+],
+"API": {
+"postBody": {
+"api": "http://wcf.open.cnblogs.com/blog/post/body/{ID}",
+"xpath": {
+"body": "//string"
+}
+},
+"comment": {
+"api": "http://wcf.open.cnblogs.com/blog/post/{POSTID}/comments/{PAGEINDEX}/{PAGESIZE}",
+"xpath": {
+"xmlns": "xmlns=",
+"entry": "//entry",
+"id": "/id",
+"published": "/published",
+"authorname": "/author/name",
+"authorurl": "/author/uri",
+"content": "/content",
+"delhtml": [
+"<fieldset[\\s\\S]+</fieldset>",
+    "<img(.)+?/>"
+    ],
+    "replacehtml": "<[^<]+</[^>]+>",
+        "pre": ">",
+        "suf": "<",
+        "br1": "<br/><br/>",
+        "br2": "<br/>"
+        }
+        },
+        "authors": {
+        "api": "http://wcf.open.cnblogs.com/blog/bloggers/recommend/{PAGEINDEX}/{PAGESIZE}",
+        "xpath": {
+        "xmlns": "xmlns=",
+        "entry": "//entry",
+        "url": "/id",
+        "name": "/title",
+        "updated": "/updated",
+        "id": "/blogapp",
+        "header": "/avatar",
+        "count": "/postcount"
+        }
+        },
+        "authorhome": {
+        "api": "http://wcf.open.cnblogs.com/blog/u/{BLOGAPP}/posts/{PAGEINDEX}/{PAGESIZE}",
+        "xpath": {
+        "xmlns": "xmlns=",
+        "entry": "//entry",
+        "logo": "//logo",
+        "id": "/id",
+        "title": "/title",
+        "published": "/published",
+        "summary": "/summary",
+        "comments": "/comments"
+        }
+        },
+        "searchauthor": {
+        "api": "http://wcf.open.cnblogs.com/blog/bloggers/search?t={TERM}",
+        "xpath": {}
+        }
+        }
+    }
