@@ -105,9 +105,9 @@
         cell.selectedBackgroundView = sbg;
     }
     
-    NSArray *titles = @[@"博客园", @"分类", @"关注", @"收藏", @"关于"];
+    NSArray *titles = @[@"博客园", @"分类", @"关注", @"收藏", @"关于",@"登陆"];
     //NSArray *titles = @[@"博客园", @"分类", @"关注", @"收藏",@"登录", @"关于"];
-    NSArray *images = @[@"IconHome.png", @"IconCat.png", @"IconFocus.png", @"IconFav.png", @"IconAbout.png"];
+    NSArray *images = @[@"IconHome.png", @"IconCat.png", @"IconFocus.png", @"IconFav.png", @"IconAbout.png", @"IconAbout.png"];
     cell.textLabel.text = titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
 
