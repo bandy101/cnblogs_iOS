@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "GDataXMLNode.h"
 #import "CommentCell.h"
+
 @interface CommentViewController ()
 {
     UIActivityIndicatorView *actView;
@@ -21,6 +22,7 @@
     int currentPageSize;
     BOOL noMore;
     BOOL initData;
+    CommentPostViewController*postViewCtr;
 }
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *listData;
@@ -79,6 +81,16 @@
     UIBarButtonItem *back=[[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem=back;
     
+    //我来评论
+    UIButton *commentBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [commentBtn setFrame:CGRectMake(self.view.frame.size.width-54, 0, 54, 44)];
+    //[commentBtn setBackgroundImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
+    [commentBtn setTitle:@"我来评论" forState:UIControlStateNormal];
+    [commentBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    [commentBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [commentBtn addTarget:self action:@selector(addPost) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *comment=[[UIBarButtonItem alloc] initWithCustomView:commentBtn];
+    self.navigationItem.rightBarButtonItem=comment;
 
     //加载显示
     loadingView=[[UIView alloc] initWithFrame:self.tableView.frame];
@@ -94,6 +106,11 @@
     [loadingView addSubview:actView];
     [loadingView addSubview:loadingLabel];
     
+    postViewCtr=[[CommentPostViewController alloc]init];
+    postViewCtr.delegate=self;
+    [self.view addSubview:postViewCtr.view];
+    [postViewCtr hidden:YES];
+    
 }
 -(void)goBack
 {
@@ -102,7 +119,10 @@
         
     }
 }
-
+-(void)addPost{
+    postViewCtr.postObj=self.postObj;
+    [postViewCtr hidden:NO];
+}
 -(void)setPostObj:(PostObject *)postObj
 {
     _postObj=postObj;
@@ -250,6 +270,8 @@
         [loadingLabel setText:@"加载评论..."];
         [self initData];
     }
+    postViewCtr.view.hidden=YES;
+    postViewCtr.postObj=NO;
     [super viewWillAppear:animated];
 }
 - (void)didReceiveMemoryWarning
@@ -334,6 +356,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+}
+
+#pragma mark CommentPostViewControllerDelegate
+-(void)CommentPostViewControllerPostSuccess{
+    [[[UIAlertView alloc]initWithTitle:@"提交成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+    [postViewCtr hidden:YES];
 }
 
 @end

@@ -8,9 +8,10 @@
 
 #import "BaseViewController.h"
 #import "RefreshFooterView.h"
+#import "CommentPostViewController.h"
 @class PostObject;
 @protocol CommentViewControllerDelegate;
-@interface CommentViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,RefreshFooterViewDelegate>
+@interface CommentViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,RefreshFooterViewDelegate,CommentPostViewControllerDelegate>
 @property(nonatomic,assign) id<CommentViewControllerDelegate> delegate;
 @property(nonatomic,strong) PostObject *postObj;
 -(void)reset;

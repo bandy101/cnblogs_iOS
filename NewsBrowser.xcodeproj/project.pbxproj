@@ -130,6 +130,9 @@
 		AAE525DA18238A5C00D33E5D /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE525D318238A5C00D33E5D /* RECommonFunctions.m */; };
 		AAE525DB18238A5C00D33E5D /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE525D518238A5C00D33E5D /* RESideMenu.m */; };
 		AAE525DC18238A5C00D33E5D /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE525D718238A5C00D33E5D /* UIViewController+RESideMenu.m */; };
+		DB5E8E461AA5B0140069D4B6 /* PostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5E8E451AA5B0140069D4B6 /* PostItem.m */; };
+		DB5E8E4A1AA6AE730069D4B6 /* CommentPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5E8E491AA6AE730069D4B6 /* CommentPostViewController.m */; };
+		DBE436A31AA56B7100C8927D /* BlogAccountHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE436A21AA56B7100C8927D /* BlogAccountHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,6 +337,12 @@
 		AAE525D518238A5C00D33E5D /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
 		AAE525D618238A5C00D33E5D /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
 		AAE525D718238A5C00D33E5D /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		DB5E8E441AA5B0140069D4B6 /* PostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostItem.h; path = CnBlogLogin/PostItem.h; sourceTree = "<group>"; };
+		DB5E8E451AA5B0140069D4B6 /* PostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostItem.m; path = CnBlogLogin/PostItem.m; sourceTree = "<group>"; };
+		DB5E8E481AA6AE730069D4B6 /* CommentPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPostViewController.h; sourceTree = "<group>"; };
+		DB5E8E491AA6AE730069D4B6 /* CommentPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPostViewController.m; sourceTree = "<group>"; };
+		DBE436A11AA56B7100C8927D /* BlogAccountHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogAccountHandler.h; path = CnBlogLogin/BlogAccountHandler.h; sourceTree = "<group>"; };
+		DBE436A21AA56B7100C8927D /* BlogAccountHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlogAccountHandler.m; path = CnBlogLogin/BlogAccountHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +399,7 @@
 		AA412E81184C12410069D13E /* BLL */ = {
 			isa = PBXGroup;
 			children = (
+				DBE436A01AA56B3300C8927D /* CnBlogLogin */,
 				AA4D1E6D186EE8A500D53C65 /* OAuth */,
 				AA412E90184C134F0069D13E /* PostListJsonHandler.h */,
 				AA412E91184C134F0069D13E /* PostListJsonHandler.m */,
@@ -658,6 +668,8 @@
 				AA38D9F4186D7E5200E35F28 /* CagtegorySortViewController.m */,
 				AA8C85E2194942A500FD8650 /* LoginViewController.h */,
 				AA8C85E3194942A500FD8650 /* LoginViewController.m */,
+				DB5E8E481AA6AE730069D4B6 /* CommentPostViewController.h */,
+				DB5E8E491AA6AE730069D4B6 /* CommentPostViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -787,6 +799,25 @@
 			path = RESideMenu;
 			sourceTree = "<group>";
 		};
+		DB5E8E431AA5AFFE0069D4B6 /* PostItem */ = {
+			isa = PBXGroup;
+			children = (
+				DB5E8E441AA5B0140069D4B6 /* PostItem.h */,
+				DB5E8E451AA5B0140069D4B6 /* PostItem.m */,
+			);
+			name = PostItem;
+			sourceTree = "<group>";
+		};
+		DBE436A01AA56B3300C8927D /* CnBlogLogin */ = {
+			isa = PBXGroup;
+			children = (
+				DB5E8E431AA5AFFE0069D4B6 /* PostItem */,
+				DBE436A11AA56B7100C8927D /* BlogAccountHandler.h */,
+				DBE436A21AA56B7100C8927D /* BlogAccountHandler.m */,
+			);
+			name = CnBlogLogin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -835,6 +866,7 @@
 				ORGANIZATIONNAME = Ethan;
 				TargetAttributes = {
 					AAACBBDF182255730009B18A = {
+						DevelopmentTeam = 75CZMKPPW7;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -937,6 +969,7 @@
 				AA79EAD81839E6F90073FBB6 /* AFPropertyListRequestOperation.m in Sources */,
 				AA3AC6D41863EE1B000B6F44 /* AuthorObject.m in Sources */,
 				AA4D1E71186EE8FE00D53C65 /* OAuthLoginViewController.m in Sources */,
+				DBE436A31AA56B7100C8927D /* BlogAccountHandler.m in Sources */,
 				AA35E5B6186BD883008C4B15 /* FavPostViewController.m in Sources */,
 				AAE525D918238A5C00D33E5D /* CRNavigationController.m in Sources */,
 				AA79EAD91839E6F90073FBB6 /* AFURLConnectionOperation.m in Sources */,
@@ -976,6 +1009,7 @@
 				AA349F6B185FEA03002AB729 /* SQLiteDBOperationObject.m in Sources */,
 				AA42152C184EB9FE00BF2E0A /* SlideFrameViewController.m in Sources */,
 				AAE525DC18238A5C00D33E5D /* UIViewController+RESideMenu.m in Sources */,
+				DB5E8E4A1AA6AE730069D4B6 /* CommentPostViewController.m in Sources */,
 				AA3BDF3A183F7799008F8E52 /* CategoryObject.m in Sources */,
 				AA79EADB1839E6F90073FBB6 /* UIImageView+AFNetworking.m in Sources */,
 				AA5A06ED1850BE9200880E29 /* RefreshArcView.m in Sources */,
@@ -988,6 +1022,7 @@
 				AA8C85E4194942A500FD8650 /* LoginViewController.m in Sources */,
 				AA4EA8671833C6E200FCE9AB /* MJRefreshHeaderView.m in Sources */,
 				AA41DAB718696C8F008C64A1 /* AuthorListDetailCell.m in Sources */,
+				DB5E8E461AA5B0140069D4B6 /* PostItem.m in Sources */,
 				AA79EAD41839E6F90073FBB6 /* AFHTTPRequestOperation.m in Sources */,
 				AA37CA021846DCFE000AA4A6 /* PostShowViewController.m in Sources */,
 				AA4EA8651833C6E200FCE9AB /* MJRefreshBaseView.m in Sources */,
@@ -1054,7 +1089,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: yan lei (SEGPB85U4Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1073,6 +1108,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "b14d0e3b-4acc-4766-8e77-e8c8eb2b8529";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1095,7 +1131,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: yan lei (SEGPB85U4Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1107,6 +1143,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "b14d0e3b-4acc-4766-8e77-e8c8eb2b8529";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1130,7 +1167,7 @@
 				INFOPLIST_FILE = "NewsBrowser/NewsBrowser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b14d0e3b-4acc-4766-8e77-e8c8eb2b8529";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1155,7 +1192,7 @@
 				INFOPLIST_FILE = "NewsBrowser/NewsBrowser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b14d0e3b-4acc-4766-8e77-e8c8eb2b8529";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
