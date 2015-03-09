@@ -23,7 +23,7 @@
     BOOL noMore;
     BOOL initData;
     CommentPostViewController*postViewCtr;
-    UITextField*txtComment;
+    UITextView*txtComment;
     UIButton*btnComment;
 }
 @property(nonatomic,strong) UITableView *tableView;
@@ -54,7 +54,7 @@
     currentPageIndex=1;
     currentPageSize=20;
     noMore=NO;
-    NSInteger commentHeight=30;
+    NSInteger commentHeight=50;
     //tableview
     float tableViewHeith= self.view.bounds.size.height;
     float tableViewY=0;
@@ -73,12 +73,34 @@
     });
     _footer=[RefreshFooterView footerWithWidth:self.tableView.bounds.size.width];
     _footer.delegate=self;
+    //comment
     CGRect rect=self.view.frame;
     UIView* commentView=[[UIView alloc]initWithFrame:CGRectMake(0, rect.size.height-commentHeight, rect.size.width, commentHeight)];
     commentView.backgroundColor=[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.7];
     [self.view addSubview:commentView];
-    txtComment=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+    txtComment=[[UITextView alloc]initWithFrame:CGRectMake(8, 10, rect.size.width-70, commentHeight-20)];
     
+    
+    CALayer * commenttext = [txtComment layer];
+    [commenttext setMasksToBounds:YES];
+    [commenttext setCornerRadius:5.0];
+    [commenttext setBorderWidth:1.0];
+    [commenttext setBorderColor:[[UIColor grayColor] CGColor]];
+    
+    
+    [txtComment setFont:[UIFont fontWithName:txtComment.font.fontName size:12.00]];
+    btnComment=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    btnComment.frame=CGRectMake(rect.size.width-60, 10, 52, commentHeight-20);
+    [btnComment setTitle:@"提交" forState:UIControlStateNormal];
+    CALayer * downButtonLayer = [btnComment layer];
+    [downButtonLayer setMasksToBounds:YES];
+    [downButtonLayer setCornerRadius:10.0];
+    [downButtonLayer setBorderWidth:1.0];
+    [downButtonLayer setBorderColor:[[UIColor grayColor] CGColor]];
+    
+    
+    [commentView addSubview:txtComment];
+    [commentView addSubview:btnComment];
     
     //navbar
     UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
