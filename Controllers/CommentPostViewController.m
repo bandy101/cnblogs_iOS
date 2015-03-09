@@ -54,42 +54,51 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     BlogAccountHandler*handler=[BlogAccountHandler shareBlogAccountHandlerInstance];
-    if (!handler.IsLogin) {
-        [[[UIAlertView alloc]initWithTitle:@"尚未登录" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
-    }
+    [handler IsLoginWithPopformcallback:^(BOOL success, NSString *errormsg) {
+        
+    }];
+//    if (!handler.IsLogin) {
+//        [[[UIAlertView alloc]initWithTitle:@"尚未登录" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+//    }
 
 }
 
 -(void)submit_click{
+    
     BlogAccountHandler*handler=[BlogAccountHandler shareBlogAccountHandlerInstance];
-    if (!handler.IsLogin) {
-        [[[UIAlertView alloc]initWithTitle:@"尚未登录" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
-    }else if(postView.text.length==0){
-    [[[UIAlertView alloc]initWithTitle:@"请填写内容" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
-    }else if(postView.text.length+[TAIL length]>4000){
-        [[[UIAlertView alloc]initWithTitle:@"内容超长" message:@"博客园要求评论的字数少于4000" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
-    }else{
-        PostItem*item=[[PostItem alloc]init];
-        item.blogApp=self.postObj.authorID;
-        item.body=[NSString stringWithFormat:@"%@%@",postView.text,TAIL];
-        item.postId=[self.postObj.ID longValue];
-        item.parentCommentId=0;
-        [handler post:item callback:^(BOOL success, NSString *errormsg) {
-            if (success) {
-                if (self.delegate&&[self.delegate respondsToSelector:@selector(CommentPostViewControllerPostSuccess)])
-                {
-                    postView.text=nil;
-                    [self.delegate CommentPostViewControllerPostSuccess];
-                    
-                }else{
-                [[[UIAlertView alloc]initWithTitle:@"提交成功" message:errormsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
-                
-                }
+    [handler IsLoginWithPopformcallback:^(BOOL success, NSString *errormsg) {
+        if (success) {
+            if (!handler.IsLogin) {
+                [[[UIAlertView alloc]initWithTitle:@"尚未登录" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+            }else if(postView.text.length==0){
+                [[[UIAlertView alloc]initWithTitle:@"请填写内容" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+            }else if(postView.text.length+[TAIL length]>4000){
+                [[[UIAlertView alloc]initWithTitle:@"内容超长" message:@"博客园要求评论的字数少于4000" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
             }else{
-                [[[UIAlertView alloc]initWithTitle:@"提交失败" message:errormsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+                PostItem*item=[[PostItem alloc]init];
+                item.blogApp=self.postObj.authorID;
+                item.body=[NSString stringWithFormat:@"%@%@",postView.text,TAIL];
+                item.postId=[self.postObj.ID longValue];
+                item.parentCommentId=0;
+                [handler post:item callback:^(BOOL success, NSString *errormsg) {
+                    if (success) {
+                        if (self.delegate&&[self.delegate respondsToSelector:@selector(CommentPostViewControllerPostSuccess)])
+                        {
+                            postView.text=nil;
+                            [self.delegate CommentPostViewControllerPostSuccess];
+                            
+                        }else{
+                            [[[UIAlertView alloc]initWithTitle:@"提交成功" message:errormsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+                            
+                        }
+                    }else{
+                        [[[UIAlertView alloc]initWithTitle:@"提交失败" message:errormsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+                    }
+                }];
             }
-        }];
-    }
+        }
+    }];
+    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{

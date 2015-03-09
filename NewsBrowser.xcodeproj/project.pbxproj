@@ -132,6 +132,7 @@
 		AAE525DC18238A5C00D33E5D /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE525D718238A5C00D33E5D /* UIViewController+RESideMenu.m */; };
 		DB5E8E461AA5B0140069D4B6 /* PostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5E8E451AA5B0140069D4B6 /* PostItem.m */; };
 		DB5E8E4A1AA6AE730069D4B6 /* CommentPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5E8E491AA6AE730069D4B6 /* CommentPostViewController.m */; };
+		DB8CC7A51AA95FA100D260BA /* CNPPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8CC7A41AA95FA100D260BA /* CNPPopupController.m */; };
 		DBE436A31AA56B7100C8927D /* BlogAccountHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE436A21AA56B7100C8927D /* BlogAccountHandler.m */; };
 /* End PBXBuildFile section */
 
@@ -341,6 +342,8 @@
 		DB5E8E451AA5B0140069D4B6 /* PostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostItem.m; path = CnBlogLogin/PostItem.m; sourceTree = "<group>"; };
 		DB5E8E481AA6AE730069D4B6 /* CommentPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPostViewController.h; sourceTree = "<group>"; };
 		DB5E8E491AA6AE730069D4B6 /* CommentPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPostViewController.m; sourceTree = "<group>"; };
+		DB8CC7A31AA95FA100D260BA /* CNPPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNPPopupController.h; sourceTree = "<group>"; };
+		DB8CC7A41AA95FA100D260BA /* CNPPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNPPopupController.m; sourceTree = "<group>"; };
 		DBE436A11AA56B7100C8927D /* BlogAccountHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogAccountHandler.h; path = CnBlogLogin/BlogAccountHandler.h; sourceTree = "<group>"; };
 		DBE436A21AA56B7100C8927D /* BlogAccountHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlogAccountHandler.m; path = CnBlogLogin/BlogAccountHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -762,6 +765,7 @@
 		AAE525CB18238A5C00D33E5D /* External */ = {
 			isa = PBXGroup;
 			children = (
+				DB8CC7A21AA95FA100D260BA /* CNPPopupController */,
 				AA38D9F6186D7EC600E35F28 /* DropSortMenu */,
 				AA349F7D186025F8002AB729 /* SVProgressHUD */,
 				AA484DCB184F600000BD004E /* GData */,
@@ -806,6 +810,15 @@
 				DB5E8E451AA5B0140069D4B6 /* PostItem.m */,
 			);
 			name = PostItem;
+			sourceTree = "<group>";
+		};
+		DB8CC7A21AA95FA100D260BA /* CNPPopupController */ = {
+			isa = PBXGroup;
+			children = (
+				DB8CC7A31AA95FA100D260BA /* CNPPopupController.h */,
+				DB8CC7A41AA95FA100D260BA /* CNPPopupController.m */,
+			);
+			path = CNPPopupController;
 			sourceTree = "<group>";
 		};
 		DBE436A01AA56B3300C8927D /* CnBlogLogin */ = {
@@ -1025,6 +1038,7 @@
 				DB5E8E461AA5B0140069D4B6 /* PostItem.m in Sources */,
 				AA79EAD41839E6F90073FBB6 /* AFHTTPRequestOperation.m in Sources */,
 				AA37CA021846DCFE000AA4A6 /* PostShowViewController.m in Sources */,
+				DB8CC7A51AA95FA100D260BA /* CNPPopupController.m in Sources */,
 				AA4EA8651833C6E200FCE9AB /* MJRefreshBaseView.m in Sources */,
 				AAE525DB18238A5C00D33E5D /* RESideMenu.m in Sources */,
 				AA4EA8661833C6E200FCE9AB /* MJRefreshFooterView.m in Sources */,

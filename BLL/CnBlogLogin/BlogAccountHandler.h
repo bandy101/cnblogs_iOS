@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "PostItem.h"
-@interface BlogAccountHandler : NSObject
+#import "CNPPopupController.h"
+@interface BlogAccountHandler : NSObject<CNPPopupControllerDelegate>
 
 +(BlogAccountHandler*)shareBlogAccountHandlerInstance;
 //判断是否成功登陆
 -(BOOL)IsLogin;
+-(void)IsLoginWithPopformcallback:(void(^)(BOOL success,NSString*errormsg))result;
 //获取登陆前必备数据，比如ViewState,验证码
 -(void)getPreLoginNecessary:(void(^)(NSDictionary*pre))callback;
 //使用用户名密码登陆

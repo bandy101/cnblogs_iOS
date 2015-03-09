@@ -17,9 +17,13 @@
 @implementation BlogAccountHandler{
     AFHTTPClient*client;
     BOOL islogin;
-  
+    void (^loginresult)(BOOL, NSString *);
+    
 }
  static NSMutableDictionary*necessaryDict;
+ static CNPPopupController*popCtr;
+ static UITextField*loginUserName;
+static UITextField*loginPwd;
 
 +(BlogAccountHandler *)shareBlogAccountHandlerInstance{
     static BlogAccountHandler *shareInstance = nil;
@@ -27,12 +31,56 @@
     dispatch_once(&predicate, ^{
         shareInstance = [[self alloc] init];
         necessaryDict=[[NSMutableDictionary alloc]init];
+        [self popInitialize];
     });
     return shareInstance;
 }
 
++(void)popInitialize{
+    
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    //picture
+    UIImage *icon = [UIImage imageNamed:@"Icon-60"];
+    //title
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"博客园登陆" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    
+    NSAttributedString *buttonTitle = [[NSAttributedString alloc] initWithString:@"登陆" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18], NSForegroundColorAttributeName : [UIColor whiteColor], NSParagraphStyleAttributeName : paragraphStyle}];
+    CNPPopupButtonItem *buttonItem = [CNPPopupButtonItem defaultButtonItemWithTitle:buttonTitle backgroundColor:[UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0]];
+//    buttonItem.selectionHandler = ^(CNPPopupButtonItem *item){
+//        if (loginresult!=nil) {
+//            loginresult(NO,@"您取消了登陆");
+//        }
+//    };
+    loginUserName=[[UITextField alloc]initWithFrame:CGRectZero];
+    loginUserName.borderStyle = UITextBorderStyleRoundedRect;
+    loginUserName.placeholder=@"博客园用户名";
+    
+    loginPwd=[[UITextField alloc]initWithFrame:CGRectMake(70, 40, 150,25)];
+    loginPwd.borderStyle = UITextBorderStyleRoundedRect;
+    [loginPwd setSecureTextEntry:YES];
+    loginPwd.placeholder=@"博客园密码";
+    popCtr=[[CNPPopupController alloc]initWithTitle:title contents:@[icon,loginUserName,loginPwd ] buttonItems:@[buttonItem] destructiveButtonItem:nil];
+    popCtr.theme = [CNPPopupTheme defaultTheme];
+    popCtr.theme.popupStyle = CNPPopupStyleCentered;
+    popCtr.theme.presentationStyle = CNPPopupPresentationStyleSlideInFromBottom;
+}
+
 -(BOOL)IsLogin{
     return client!=nil&&islogin;
+}
+
+-(void)IsLoginWithPopformcallback:(void (^)(BOOL, NSString *))result{
+    if ([self IsLogin]) {
+        result(YES,nil);
+        return ;
+    }
+    if (popCtr.delegate==nil) {
+        popCtr.delegate=self;
+    }
+    loginresult=result;
+    [popCtr presentPopupControllerAnimated:YES];
 }
 
 -(void)getPreLoginNecessary:(void(^)(NSDictionary*pre))callback{
@@ -58,7 +106,7 @@
     [necessaryDict setValue:pwd forKey:@"tbPassword"];
     [necessaryDict setValue:vailImg forKey:@"CaptchaCodeTextBox"];
     [client setParameterEncoding:AFFormURLParameterEncoding];
-     [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [client postPath:LOGIN_URL parameters:necessaryDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([HOME_URL isEqualToString:operation.response.URL.absoluteString]) {
             islogin=YES;
@@ -169,4 +217,42 @@
     }
     return nil;
 }
+
+#pragma mark 弹出框的回调
+
+-(void)popupControllerDidPresent:(CNPPopupController *)controller{
+
+}
+-(BOOL)popupController:(CNPPopupController *)controller willDismissWithButtonTitle:(NSString *)title{
+    if([title isEqualToString:@"登陆"]){
+        [self loginWith:loginUserName.text Pwd:loginPwd.text Validate:nil result:^(BOOL success, NSString *errorMsg, NSDictionary *loginNecessary) {
+            if (success) {
+                if (loginresult!=nil) {
+                    loginresult(YES,nil);
+                    loginresult=nil;
+                }
+                [controller dismissPopupControllerAnimated:YES];
+            }else{
+                [[[UIAlertView alloc]initWithTitle:@"登录失败" message:errorMsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+            }
+        }];
+        
+        return NO;
+    }
+    return YES;
+}
+-(void)popupController:(CNPPopupController *)controller didDismissWithButtonTitle:(NSString *)title{
+    if (title==nil) {
+        if (loginresult!=nil) {
+            loginresult(NO,@"您取消了登陆");
+        }
+    }else if([title isEqualToString:@"登陆"]){
+        if (loginresult!=nil) {
+            loginresult(YES,nil);
+            loginresult=nil;
+        }
+    }
+}
+
+
 @end

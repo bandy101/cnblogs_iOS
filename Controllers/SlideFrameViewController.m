@@ -154,10 +154,10 @@
         case 3:
             containerNavVC.viewControllers=[NSArray arrayWithObjects:favPostVC, nil];
             break;
+//        case 4:
+//            containerNavVC.viewControllers=[NSArray arrayWithObjects:[[LoginViewController alloc] init], nil];
+//            break;
         case 4:
-            containerNavVC.viewControllers=[NSArray arrayWithObjects:[[LoginViewController alloc] init], nil];
-            break;
-        case 5:
             containerNavVC.viewControllers=[NSArray arrayWithObjects:aboutVC, nil];
             break;
         

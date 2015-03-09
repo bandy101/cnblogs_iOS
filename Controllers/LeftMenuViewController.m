@@ -85,7 +85,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 6;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,7 +105,7 @@
         cell.selectedBackgroundView = sbg;
     }
     
-    NSArray *titles = @[@"博客园", @"分类", @"关注", @"收藏",@"登陆", @"关于"];
+    NSArray *titles = @[@"博客园", @"分类", @"关注", @"收藏", @"关于"];
     //NSArray *titles = @[@"博客园", @"分类", @"关注", @"收藏",@"登录", @"关于"];
     NSArray *images = @[@"IconHome.png", @"IconCat.png", @"IconFocus.png", @"IconFav.png", @"IconAbout.png", @"IconAbout.png"];
     cell.textLabel.text = titles[indexPath.row];

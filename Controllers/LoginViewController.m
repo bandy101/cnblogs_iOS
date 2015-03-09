@@ -66,12 +66,12 @@
         [btnSubmit addTarget:self action:@selector(submit_click) forControlEvents:UIControlEventTouchUpInside];
         btnSubmit.layer.borderWidth=1;
         
-//        UIButton*btnTest=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        btnTest.frame=CGRectMake((viewWidth+70)/2, 105, 60, 25);
-//        btnTest.layer.cornerRadius=5;
-//        [btnTest setTitle:@"发评论" forState:UIControlStateNormal];
-//        [btnTest addTarget:self action:@selector(text_Click) forControlEvents:UIControlEventTouchUpInside];
-//        btnTest.layer.borderWidth=1;
+        UIButton*btnTest=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+        btnTest.frame=CGRectMake((viewWidth+70)/2, 105, 60, 25);
+        btnTest.layer.cornerRadius=5;
+        [btnTest setTitle:@"发评论" forState:UIControlStateNormal];
+        [btnTest addTarget:self action:@selector(text_Click) forControlEvents:UIControlEventTouchUpInside];
+        btnTest.layer.borderWidth=1;
         
 
         
@@ -80,12 +80,13 @@
         [bacView addSubview:txtUserName];
         [bacView addSubview:txtPwd];
         [bacView addSubview:btnSubmit];
-        //[bacView addSubview:btnTest];
+        [bacView addSubview:btnTest];
         [bacView addSubview:lblVail];
         [bacView addSubview:txtVail];
         [bacView addSubview:imgVail];
         
-        
+        txtUserName.text=@"蒹葭苍苍";
+        txtPwd.text=@"leafly0719";
         
         [self.view addSubview:bacView];
     }
@@ -109,14 +110,17 @@
 }
 
 -(void)text_Click{
-//http://www.cnblogs.com/bandy/p/4308010.html
-    PostItem*item=[[PostItem alloc]init];
-    item.blogApp=@"bandy";
-    item.body=@"测试评论_SLEEPING2";
-    item.parentCommentId=0;
-    item.postId=4308010;
-    [[BlogAccountHandler shareBlogAccountHandlerInstance]post:item callback:^(BOOL success, NSString *errormsg) {
-        NSLog(@"%@%@",success?@"YES":@"NO",errormsg);
+////http://www.cnblogs.com/bandy/p/4308010.html
+//    PostItem*item=[[PostItem alloc]init];
+//    item.blogApp=@"bandy";
+//    item.body=@"测试评论_SLEEPING2";
+//    item.parentCommentId=0;
+//    item.postId=4308010;
+//    [[BlogAccountHandler shareBlogAccountHandlerInstance]post:item callback:^(BOOL success, NSString *errormsg) {
+//        NSLog(@"%@%@",success?@"YES":@"NO",errormsg);
+//    }];
+    [[BlogAccountHandler shareBlogAccountHandlerInstance] IsLoginWithPopformcallback:^(BOOL success, NSString *errormsg) {
+        
     }];
 }
 

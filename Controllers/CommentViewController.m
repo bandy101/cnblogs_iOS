@@ -23,6 +23,8 @@
     BOOL noMore;
     BOOL initData;
     CommentPostViewController*postViewCtr;
+    UITextField*txtComment;
+    UIButton*btnComment;
 }
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *listData;
@@ -52,6 +54,7 @@
     currentPageIndex=1;
     currentPageSize=20;
     noMore=NO;
+    NSInteger commentHeight=30;
     //tableview
     float tableViewHeith= self.view.bounds.size.height;
     float tableViewY=0;
@@ -60,7 +63,7 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_detail_bg.png"] forBarMetrics:UIBarMetricsDefault];
     }
     self.tableView=({
-        UITableView *tableView=[[UITableView alloc] initWithFrame:CGRectMake(0,tableViewY,self.view.bounds.size.width,tableViewHeith) style:UITableViewStylePlain];
+        UITableView *tableView=[[UITableView alloc] initWithFrame:CGRectMake(0,tableViewY,self.view.bounds.size.width,tableViewHeith-commentHeight) style:UITableViewStylePlain];
         tableView.delegate=self;
         tableView.dataSource=self;
         tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -70,8 +73,12 @@
     });
     _footer=[RefreshFooterView footerWithWidth:self.tableView.bounds.size.width];
     _footer.delegate=self;
-
-
+    CGRect rect=self.view.frame;
+    UIView* commentView=[[UIView alloc]initWithFrame:CGRectMake(0, rect.size.height-commentHeight, rect.size.width, commentHeight)];
+    commentView.backgroundColor=[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.7];
+    [self.view addSubview:commentView];
+    txtComment=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
     
     //navbar
     UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -362,6 +369,7 @@
 -(void)CommentPostViewControllerPostSuccess{
     [[[UIAlertView alloc]initWithTitle:@"提交成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
     [postViewCtr hidden:YES];
+    [self initData];
 }
 
 @end
